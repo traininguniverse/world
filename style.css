@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2c2c2c 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.wave-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.waves {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 150vh;
+}
+
+.wave-parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+
+.wave-parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+.wave-parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+.wave-parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+.wave-parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+.main-quote {
+    font-size: 3.5vw;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 2rem 3rem;
+}
+
+.main-quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInBox 0.8s ease forwards,
+               pulseBox 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation-delay: 2.5s, 3.3s;
+    box-shadow: 
+        0 0 20px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quote-part {
+    opacity: 0;
+    display: inline-block;
+    margin: 0 10px;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.quote-part:nth-child(1) { animation-delay: 0.5s; }
+.quote-part:nth-child(2) { animation-delay: 1s; }
+.quote-part:nth-child(3) { animation-delay: 1.5s; }
+.quote-part:nth-child(4) { animation-delay: 2s; }
+
+.letter {
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2),
+                0 0 20px rgba(255,255,255,0.1);
+    filter: blur(0.3px);
+    background: linear-gradient(to right, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: constantWave 3s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.letter:nth-child(2n) { animation-delay: 0.1s; }
+.letter:nth-child(3n) { animation-delay: 0.2s; }
+.letter:nth-child(4n) { animation-delay: 0.3s; }
+.letter:nth-child(5n) { animation-delay: 0.4s; }
+
+.letter.wavy {
+    animation: wavy 1s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.letter:hover {
+    animation: none !important;
+    transform: translateY(-5px);
+    filter: blur(0);
+    text-shadow: 0 0 15px rgba(255,255,255,0.8),
+                 0 0 30px rgba(255,255,255,0.6),
+                 0 0 45px rgba(255,255,255,0.4);
+    background: linear-gradient(to right, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInBox {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseBox {
+    0% {
+        opacity: 1;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+    20% {
+        opacity: 0.8;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+    40% {
+        opacity: 0.6;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+    60% {
+        opacity: 0.3;
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    }
+    80% {
+        opacity: 0;
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
+    }
+    90% {
+        opacity: 0.5;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+    100% {
+        opacity: 1;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+}
+
+@keyframes constantWave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-2px) translateX(0.5px);
+    }
+    75% {
+        transform: translateY(2px) translateX(-0.5px);
+    }
+}
+
+@keyframes wavy {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-3px) translateX(1px);
+    }
+    75% {
+        transform: translateY(3px) translateX(-1px);
+    }
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px,0,0);
+    }
+    100% { 
+        transform: translate3d(85px,0,0);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-quote {
+        font-size: 7vw;
+    }
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+}

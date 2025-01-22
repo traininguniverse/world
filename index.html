@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Świat jest moim wyobrażeniem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wave-container">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+            <defs>
+                <path id="wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="wave-parallax">
+                <use href="#wave" x="48" y="0" fill="rgba(255,255,255,0.02)"/>
+                <use href="#wave" x="48" y="3" fill="rgba(255,255,255,0.03)"/>
+                <use href="#wave" x="48" y="5" fill="rgba(255,255,255,0.01)"/>
+                <use href="#wave" x="48" y="7" fill="rgba(255,255,255,0.02)"/>
+            </g>
+        </svg>
+    </div>
+
+    <h1 class="main-quote">
+        <span class="quote-part">Świat</span>
+        <span class="quote-part">jest</span>
+        <span class="quote-part">moim</span>
+        <span class="quote-part">wyobrażeniem</span>
+    </h1>
+
+    <script src="script.js"></script>
+</body>
+</html>
