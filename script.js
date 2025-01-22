@@ -27,4 +27,36 @@ document.addEventListener('DOMContentLoaded', () => {
             letter.style.animationDelay = '0s';
         });
     });
+
+    // Obsługa przewijania
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const secondSection = document.querySelector('.second-section');
+    
+    if (scrollIndicator && secondSection) {
+        scrollIndicator.addEventListener('click', () => {
+            secondSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start' 
+            });
+        });
+    }
+
+    // Animacja contentu przy scrollowaniu
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '-50px'
+    };
+
+    const contentObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Obserwuj wszystkie elementy z klasą content
+    document.querySelectorAll('.second-section .content').forEach(content => {
+        contentObserver.observe(content);
+    });
 });
