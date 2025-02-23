@@ -29,17 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Obsługa przewijania
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    const secondSection = document.querySelector('.second-section');
+    const scrollIndicators = document.querySelectorAll('.scroll-indicator');
     
-    if (scrollIndicator && secondSection) {
-        scrollIndicator.addEventListener('click', () => {
-            secondSection.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start' 
-            });
+    scrollIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            const sections = document.querySelectorAll('section');
+            if (index < sections.length - 1) {
+                sections[index + 1].scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }
         });
-    }
+    });
 
     // Animacja contentu przy scrollowaniu
     const observerOptions = {

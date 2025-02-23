@@ -225,12 +225,12 @@ body {
 
 /* Sekcje */
 section {
-    height: 100vh;
+    position: relative;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
 .second-section {
@@ -323,7 +323,7 @@ section {
     color: #e0e0e0;
 }
 
-/* Dodaj style dla first-section */
+
 .first-section {
     position: relative;
     height: 100vh;
@@ -332,4 +332,88 @@ section {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+
+.third-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.third-section .content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rectangle-container {
+    width: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.left-section, .right-section {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cover-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.right-section {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.right-section h2, 
+.right-section h3, 
+.right-section p {
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.right-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 2.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.right-section h3 {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 2.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.right-section p {
+    font-size: 1.1rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin: 2.6rem auto;
 }
