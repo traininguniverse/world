@@ -221,6 +221,54 @@ body {
         height: 40px;
         min-height: 40px;
     }
+    .rectangle-container {
+        width: 90%;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .left-section, .right-section {
+        width: 100%;
+    }
+    .left-section img {
+        max-width: 100%;
+        height: auto;
+    }
+    .right-section {
+        padding: 1rem 0;
+    }
+    .right-section h2 {
+        font-size: 6vw;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0 0.5rem;
+    }
+    .right-section h3 {
+        font-size: 4vw;
+        margin-bottom: 1rem;
+        padding: 0 0.5rem;
+    }
+    .right-section p {
+        font-size: 3.5vw;
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+        line-height: 1.4;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .rectangle-container {
+        width: 85%;
+        padding: 1.5rem;
+    }
+    .right-section h2 {
+        font-size: 4vw;
+    }
+    .right-section h3 {
+        font-size: 2.5vw;
+    }
+    .right-section p {
+        font-size: 2vw;
+    }
 }
 
 /* Sekcje */
